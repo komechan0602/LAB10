@@ -1,24 +1,15 @@
-# Lab 10: Implementation of HTTP with Java/Spring Boot (Updated to Spring Boot 4.0.1)
+# Lab 10: Implementation of HTTP with Java/Spring Boot
 
-This project is a Spring Boot 4.0.1 application that implements basic HTTP concepts using a layered architecture.
-
-## Features
-
-- Layered architecture: Controllers, Services, Repositories, and Models.
-- SQLite database integration.
-- Database migrations using Flyway.
-- Environment variable configuration using `.env` files.
-- Basic user registration and authentication logic.
-- Simple GET endpoint.
+This project is a Spring Boot application implementing basic HTTP concepts using a layered architecture.
 
 ## Prerequisites
 
-- Java 26 or higher
+- Java 21 or higher
 - Maven (included via `./mvnw`)
 
 ## Setup
 
-1. Clone the repository.
+1. Clone the repository
 2. Create a `.env` file in the root directory based on `.env.example`:
    ```properties
    DB_URL=jdbc:sqlite:database.db
@@ -34,17 +25,30 @@ This project is a Spring Boot 4.0.1 application that implements basic HTTP conce
    ./mvnw spring-boot:run
    ```
 
+The application will start on `http://localhost:8080`
+
+## Project Structure
+
+The project follows a layered architecture:
+
+- **Controller**: Handles HTTP requests and responses
+- **Service**: Contains business logic
+- **Repository**: Manages data persistence
+- **Model**: Domain entities
+- **DTO**: Data Transfer Objects for request validation
+- **Config**: Configuration classes
+
 ## Endpoints
 
 ### Hello Endpoint
-- **URL:** `/hello`
-- **Method:** `GET`
-- **Response:** `Hello, user!`
+- **URL**: `/hello`
+- **Method**: `GET`
+- **Response**: Simple greeting message
 
 ### User Registration
-- **URL:** `/api/users/register`
-- **Method:** `POST`
-- **Body:**
+- **URL**: `/api/users/register`
+- **Method**: `POST`
+- **Body**:
   ```json
   {
     "username": "johndoe",
@@ -54,12 +58,22 @@ This project is a Spring Boot 4.0.1 application that implements basic HTTP conce
   ```
 
 ### User Login
-- **URL:** `/api/users/login`
-- **Method:** `POST`
-- **Body:**
+- **URL**: `/api/users/login`
+- **Method**: `POST`
+- **Body**:
   ```json
   {
     "email": "john@example.com",
     "password": "securepassword"
   }
   ```
+
+## Technologies Used
+
+- Spring Boot 4.0.1
+- Spring Web
+- Spring Security
+- Spring Data JPA
+- Flyway (Database Migration)
+- SQLite Database
+- Jakarta Validation

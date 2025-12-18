@@ -59,7 +59,6 @@ public class UserController {
                 userInfo.put("id", user.getId());
                 userInfo.put("username", user.getUsername());
                 userInfo.put("email", user.getEmail());
-                // Don't expose password hash
                 return userInfo;
             })
             .collect(Collectors.toList());
