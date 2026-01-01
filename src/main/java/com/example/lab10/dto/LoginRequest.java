@@ -2,6 +2,7 @@ package com.example.lab10.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class LoginRequest {
     @Email
@@ -9,6 +10,7 @@ public class LoginRequest {
     private String email;
 
     @NotBlank
+    @Size(min = 8, max = 64)
     private String password;
 
     public String getEmail() { return email; }

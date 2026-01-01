@@ -1,10 +1,14 @@
 package com.example.lab10.dto;
 
+import com.example.lab10.validation.ValidUsername;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class CreateUserRequest {
     @NotBlank
+    @Size(min = 3, max = 30)
+    @ValidUsername
     private String username;
 
     @Email
@@ -12,6 +16,7 @@ public class CreateUserRequest {
     private String email;
 
     @NotBlank
+    @Size(min = 8, max = 64)
     private String password;
 
     public String getUsername() { return username; }
